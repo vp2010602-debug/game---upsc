@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Today Paper Crorepati Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-coin">₹</div>
+        <div>
+          <h1>Today Paper Crorepati</h1>
+          <p>The Hindu International • 17 June 2026</p>
+        </div>
+      </div>
+      <button id="resetUsedBtn" class="ghost-btn" type="button">Reset Questions</button>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen active">
+        <div class="hero-card">
+          <span class="pill">New repository ready • 80 questions</span>
+          <h2>Play current affairs like <span>Crorepati</span></h2>
+          <p class="hero-text">15 questions per game, prize ladder, timer, four lifelines, explanation after every answer, and non-repeating question memory.</p>
+          <div class="hero-actions">
+            <button id="startBtn" class="primary-btn" type="button">Start Game</button>
+            <button id="rulesBtn" class="secondary-btn" type="button">Show Rules</button>
+          </div>
+          <div id="rulesBox" class="rules-box hidden">
+            <b>Rules:</b> Answer 15 questions. Safe levels are Question 5, 10 and 15. Lifelines can be used once: 50:50, Audience Poll, Flip Question and Hint.
+          </div>
+          <div class="stat-grid">
+            <div><b id="totalQuestions">0</b><small>Total Questions</small></div>
+            <div><b>15</b><small>Per Game</small></div>
+            <div><b>45s</b><small>Timer</small></div>
+            <div><b>4</b><small>Lifelines</small></div>
+          </div>
+          <p id="loadWarning" class="warning hidden">Questions did not load. Make sure <b>data/questions.js</b> is uploaded with this file.</p>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen">
+        <div class="game-layout">
+          <section class="quiz-panel">
+            <div class="game-status">
+              <div><small>Question</small><b id="questionNumber">1 / 15</b></div>
+              <div><small>Current Prize</small><b id="currentPrize">₹1,000</b></div>
+              <div class="timer-box"><small>Timer</small><b id="timer">45</b></div>
+            </div>
+
+            <div class="lifelines">
+              <button id="life5050" type="button">50:50</button>
+              <button id="lifePoll" type="button">Audience Poll</button>
+              <button id="lifeFlip" type="button">Flip</button>
+              <button id="lifeHint" type="button">Hint</button>
+            </div>
+
+            <article class="question-card">
+              <div class="question-meta">
+                <span id="categoryTag">Category</span>
+                <span id="difficultyTag">Difficulty</span>
+                <span id="sourceTag">Page</span>
+              </div>
+              <h2 id="questionText">Question appears here</h2>
+              <div id="optionsBox" class="options-box"></div>
+            </article>
+          </section>
+
+          <aside class="side-panel">
+            <div id="hostMessage" class="host-message">Welcome macha. Choose the correct answer.</div>
+            <div class="ladder-title">Prize Ladder</div>
+            <div id="prizeLadder" class="prize-ladder"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen">
+        <div class="result-card">
+          <div id="resultEmoji" class="result-emoji">🏆</div>
+          <h2 id="resultTitle">Game Over</h2>
+          <p id="resultText">Your score appears here.</p>
+          <div class="hero-actions">
+            <button id="playAgainBtn" class="primary-btn" type="button">Play Again</button>
+            <button id="goHomeBtn" class="secondary-btn" type="button">Home</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="data/questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
